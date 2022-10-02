@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="isShow">{{ message }}</p>
+        <input type="button" value="change status" @click="changeStatus">
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var vue = new Vue({
+            el: "#app",
+            data: {
+                message: "msg",
+                isShow: true
+            },
+            methods: {
+                changeStatus: function() {
+                    this.isShow = !this.isShow;
+                }
+            }
+        })    
+    </script>
+</body>
+</html>
