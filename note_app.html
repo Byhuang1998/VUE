@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message" @keyup.enter="addEvent">
+
+        <ul>
+            <li v-for="(item, index) in toDoList">
+                {{index + 1}}.{{item}} <button value="x" name="1sd" v-show=""></button>
+            </li>
+        </ul>
+
+
+        <p v-show="toDoList.length > 0">{{ toDoList.length }} items left</p>
+        <input type="button" value="clear" @click="clearList" v-show="toDoList.length > 0">
+
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+          var vue = new Vue({
+            el: "#app",
+            data: {
+                message: "",
+                toDoList: [
+                ]
+            },
+            methods: {
+                addEvent: function() {
+                    this.toDoList.push(this.message);
+                },
+                clearList: function() {
+                    this.toDoList = [];
+                }
+            }
+          })
+    </script>
+</body>
+</html>
