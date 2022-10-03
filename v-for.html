@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>swith_photos</title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<!-- 
+    v-for指令的作用是：根据数据生成列表结构
+    数组经常和v-for结合使用
+    语法是(item, index) in 数据
+    item和index可以结合其他指令一起使用
+ -->
+
+<body>
+    <div id="app">
+        <ul v-for="(item, index) in foods">
+            <li>{{ index }}、{{ item }}</li>
+        </ul>
+        <ul>
+            <li v-for="(item, index) in address">{{ index }}、{{ item.name }}{{ item.cn }}</li>
+        </ul>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var vue = new Vue({
+            el: "#app",
+            data: {
+                foods: ["chicken", "fish", "rice"],
+                address: [
+                    {name: "LA", cn: "洛杉矶"},
+                    {name: "BJ", cn: "北京"},
+                    {name: "SZ", cn: "深圳"},
+                ]
+            }
+        })    
+    </script>
+</body>
+</html>
