@@ -12,10 +12,19 @@
             v-on指令的作用是：为元素绑定事件
             事件名不需要写on，指令可以简写为@
             绑定的方法定义在methods中，方法内部通过this关键字可以访问定义在data数据中
+
+            事件绑定的方法写成函数调用的形式，可以传入自定义参数
+            定义方法时需要定义形参来接收传入的实参
+            事件的后面跟上.修饰符可以对事件进行限制
+            .enter可以限制触发的按键为回车
+            事件的修饰符还有其它
          -->
          <input type="button" value="点击" @click="doIT">
          <input type="button" value="双击" @dblclick="doIT">
          <p @click="changeFood">{{ food }}</p>
+
+         <input type="button" value="测试带参数的v-on指令" @click="func1('参数1', '参数2')">
+         <input type="text" value="测试带参数的v-on指令" @keyup.enter="func2">
     </div>
 
     <!-- 开发环境版本，包含了有帮助的命令行警告 -->
@@ -33,6 +42,13 @@
                 changeFood() {
                     console.log(this.food);
                     this.food += "carrots";
+                },
+                func1(p1, p2) {
+                    alert(p1);
+                    alert(p2);
+                },
+                func2() {
+                    alert("带等两年好不好？");
                 }
             }
         })
